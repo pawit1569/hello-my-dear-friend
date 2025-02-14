@@ -1,139 +1,253 @@
 <!DOCTYPE html>
-<html lang="th">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>จดหมายปัจฉิมวันจบ</title>
+    <title>Congratulations Page</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
         body {
-            font-family: 'Comic Sans MS', sans-serif;
-            background: url('img/e5c59c618e4ed1e26435a561373e3b79.jpg') no-repeat center center fixed;
-            background-size: cover; /* ให้ภาพเต็มหน้าจอ */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+            font-family: 'Poppins', sans-serif;
+            color: #4B0082; /* สีม่วงเข้ม */
             margin: 0;
-            color: #333;
+            padding: 0;
+            text-align: center;
+            font-size: 1.1em;
+            background: url('img/landscape-7283516_640.jpg') no-repeat center center fixed; /* ตั้งค่าภาพพื้นหลัง */
+            background-size: cover; /* ให้ภาพเต็มหน้าจอ */
+            position: relative;
+        }
+
+        /* เพิ่มเอฟเฟกต์แสงให้กับพื้นหลัง */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.3); /* เพิ่มแสง */
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* ดาวตก */
+        .star {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #000000; /* ดาวสีเหลืองทองเข้ม */
+            border-radius: 100%;
+            animation: fall 4s infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                top: -10px;
+                left: calc(50% + 30px * (random() - 0.5)); /* ขยับตำแหน่งดาวให้ตกจากซ้ายขวา */
+                opacity: 1;
+            }
+            100% {
+                top: 100vh;
+                left: calc(50% + 30px * (random() - 0.5));
+                opacity: 0;
+            }
+        }
+
+        /* ส่วนอื่นๆ ของหน้า */
+        .top-bar {
+            width: 100%;
+            background-color: rgba(170, 99, 221, 0.8); /* ใช้สีม่วงเข้มโปร่งใส */
+            color: white;
+            padding: 15px 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .top-bar h1 {
+            margin: 0;
+            font-size: 1.8em;
+            font-weight: 600;
+            letter-spacing: 1px;
         }
 
         .container {
-            background-color: #fff;
-            border-radius: 15px;
-            padding: 20px;
-            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            width: 90%;
-            max-width: 380px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
             position: relative;
-            overflow: hidden;
-            font-size: 18px;
+            padding-top: 80px;
+            animation: fadeIn 1s ease-out;
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            max-width: 90%;
+            margin: auto;
+            min-height: 100vh; /* เพิ่มความสูงขั้นต่ำ */
+            padding-bottom: 20px; /* เพิ่มพื้นที่ด้านล่าง */
         }
 
         h1 {
-            font-size: 24px;
-            color: #ff6347;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            font-weight: bold;
+            font-size: 2.5em;
+            margin: 20px 0;
+            padding: 0;
+            color: #514653;
+            text-shadow: 0 4px 6px rgba(12, 12, 12, 0.2);
         }
 
-        .letter {
-            font-size: 16px;
-            line-height: 1.6;
-            color: #333;
-            margin-bottom: 30px;
+        /* เพิ่มรูปภาพ */
+        .image {
+            position: relative;
+            width: 80%;
+            max-width: 300px;
+            margin: 20px auto;
+            z-index: 1;
+            background: rgba(255, 255, 255, 0.7); /* ให้ภาพดูโปร่งใส */
+            border-radius: 20px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            transition: transform 0.3s;
         }
 
-        .highlight {
-            color: #ff6347;
-            font-weight: bold;
-            text-decoration: underline;
+        .image img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 20px;
         }
 
-        .stamp {
-            position: absolute;
-            top: -50px;
-            right: -50px;
-            font-size: 30px;
-            color: #ff6347;
-            transform: rotate(45deg);
-            opacity: 0.15;
+        .image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
         }
 
-        .footer {
-            font-size: 14px;
-            color: #999;
-            margin-top: 30px;
-        }
-
-        .signature {
-            font-size: 16px;
-            font-style: italic;
-            color: #32cd32;
-        }
-
-        .funny-note {
-            color: #32cd32;
-            font-weight: bold;
-        }
-
-        .funny-note span {
-            color: #ff6347;
-            font-weight: normal;
-        }
-
-        .button-link {
-            background-color: #ff6347;
-            color: white;
-            font-size: 18px;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            text-decoration: none;
-            cursor: pointer;
+        .buttons {
             margin-top: 20px;
         }
 
-        .button-link:hover {
-            background-color: #ff4500;
+        button {
+            background-color: #9B30FF;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            margin: 10px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        button:hover {
+            transform: scale(1.1);
+            background-color: #8A2BE2;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        button:active {
+            background-color: #7A1F98;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Message styling */
+        .message {
+            font-size: 1.2em;
+            color: #6A0DAD;
+            margin-top: 20px;
+            font-weight: 600;
+            line-height: 1.5;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .container {
+                padding-top: 100px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            .image {
+                max-width: 250px;
+            }
+
+            .message {
+                font-size: 1.1em;
+            }
+
+            button {
+                padding: 12px 25px;
+                font-size: 1.1em;
+            }
         }
 
         @media (max-width: 480px) {
+            .top-bar h1 {
+                font-size: 1.5em;
+            }
+
             h1 {
-                font-size: 20px;
+                font-size: 1.8em;
             }
 
-            .letter {
-                font-size: 14px;
+            .image {
+                max-width: 200px;
             }
 
-            .footer {
-                font-size: 12px;
+            .message {
+                font-size: 1em;
             }
 
-            .stamp {
-                font-size: 24px;
+            button {
+                padding: 10px 20px;
+                font-size: 1em;
             }
         }
     </style>
 </head>
 <body>
+    <div class="top-bar">
+        <h1>Congratulations!</h1>
+    </div>
     <div class="container">
-        <div class="stamp">CONFIDENTIAL</div>
-        <h1>จดหมายอำลาปัจฉิม</h1>
-        <div class="letter">
-            <p>สวัสดี <span class="highlight">เพื่อนที่มีค่าที่สุด</span>!</p>
-            <p>วันนี้เป็นวันที่ยิ่งใหญ่ที่สุดในชีวิตเรา! วันแห่งการจบการศึกษา... แต่ขอเตือนนะครับว่า <span class="highlight">จบแล้วไม่ได้หมายความว่าชีวิตจะจบ!</span></p>
-            <p>คุณจะได้พบกับโลกกว้างๆ และเผชิญกับสิ่งใหม่ๆ มากมาย—ซึ่งก็หมายถึงการทำงานหนักและ...การจ่ายภาษี 😜</p>
-            <p>อย่าลืมว่าความสำเร็จไม่ได้มาโดยง่ายเหมือนกับการยกถ้วยกาแฟตอนเช้า เพราะมีค่าใช้จ่ายในการเอาชนะอุปสรรค!</p>
-            <p>ไม่ว่าคุณจะไปไหน ขอให้มีความสุขมากๆ นะครับ! และอย่าลืม: <span class="funny-note">"โลกนี้ไม่มีอะไรฟรี...ยกเว้นความขี้เกียจที่อาจจะทำให้คุณถูกไล่ออก!"</span></p>
+        <!-- Add Image -->
+        <div class="image">
+            <img src="img/DALL·E 2025-02-14 11.40.59 - A joyful graduation scene featuring a group of students in traditional caps and gowns, throwing their caps into the air against a bright blue sky with.webp" alt="Your Image">
         </div>
-        <a href="https://forms.gle/oZhe6GfeDJidrNJA9" target="_blank" class="button-link">ส่งข้อความถึงเพื่อนรัก</a>
-        <div class="footer">
-            <p class="signature">จาก: คนที่ขำที่สุดในห้องเรียน</p>
+
+        <h1>You've done it!</h1>
+        <p class="message">ยินดีด้วยนะ! ความสำเร็จวันนี้คือผลลัพธ์ของความพยายาม ขอให้อนาคตของเธอสดใสและเต็มไปด้วยโอกาสดี ๆ"</p>
+        <div class="buttons">
+            <button onclick="goNext()">Next</button>
         </div>
     </div>
+
+    <!-- Stars falling effect -->
+    <script>
+        setInterval(function() {
+            let star = document.createElement('div');
+            star.classList.add('star');
+            document.body.appendChild(star);
+            let randomLeft = Math.random() * 100;
+            star.style.left = randomLeft + 'vw';
+
+            setTimeout(() => {
+                star.remove();
+            }, 4000);
+        }, 300);
+
+        // Function for the buttons
+        function goNext() {
+           window.location.href = 'Gallery.html';  // เปลี่ยนไปที่หน้าใหม่
+        }
+    </script>
 </body>
 </html>
-
