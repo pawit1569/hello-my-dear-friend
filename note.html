@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>จดหมายปัจฉิมวันจบ</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', sans-serif;
+            background: url('img/e5c59c618e4ed1e26435a561373e3b79.jpg') no-repeat center center fixed;
+            background-size: cover; /* ให้ภาพเต็มหน้าจอ */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #333;
+        }
+
+        .container {
+            background-color: #fff;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 90%;
+            max-width: 380px;
+            position: relative;
+            overflow: hidden;
+            font-size: 18px;
+        }
+
+        h1 {
+            font-size: 24px;
+            color: #ff6347;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .letter {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .highlight {
+            color: #ff6347;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        .stamp {
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            font-size: 30px;
+            color: #ff6347;
+            transform: rotate(45deg);
+            opacity: 0.15;
+        }
+
+        .footer {
+            font-size: 14px;
+            color: #999;
+            margin-top: 30px;
+        }
+
+        .signature {
+            font-size: 16px;
+            font-style: italic;
+            color: #32cd32;
+        }
+
+        .funny-note {
+            color: #32cd32;
+            font-weight: bold;
+        }
+
+        .funny-note span {
+            color: #ff6347;
+            font-weight: normal;
+        }
+
+        .button-link {
+            background-color: #ff6347;
+            color: white;
+            font-size: 18px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .button-link:hover {
+            background-color: #ff4500;
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 20px;
+            }
+
+            .letter {
+                font-size: 14px;
+            }
+
+            .footer {
+                font-size: 12px;
+            }
+
+            .stamp {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="stamp">CONFIDENTIAL</div>
+        <h1>จดหมายอำลาปัจฉิม</h1>
+        <div class="letter">
+            <p>สวัสดี <span class="highlight">เพื่อนที่มีค่าที่สุด</span>!</p>
+            <p>วันนี้เป็นวันที่ยิ่งใหญ่ที่สุดในชีวิตเรา! วันแห่งการจบการศึกษา... แต่ขอเตือนนะครับว่า <span class="highlight">จบแล้วไม่ได้หมายความว่าชีวิตจะจบ!</span></p>
+            <p>คุณจะได้พบกับโลกกว้างๆ และเผชิญกับสิ่งใหม่ๆ มากมาย—ซึ่งก็หมายถึงการทำงานหนักและ...การจ่ายภาษี 😜</p>
+            <p>อย่าลืมว่าความสำเร็จไม่ได้มาโดยง่ายเหมือนกับการยกถ้วยกาแฟตอนเช้า เพราะมีค่าใช้จ่ายในการเอาชนะอุปสรรค!</p>
+            <p>ไม่ว่าคุณจะไปไหน ขอให้มีความสุขมากๆ นะครับ! และอย่าลืม: <span class="funny-note">"โลกนี้ไม่มีอะไรฟรี...ยกเว้นความขี้เกียจที่อาจจะทำให้คุณถูกไล่ออก!"</span></p>
+        </div>
+        <a href="https://forms.gle/oZhe6GfeDJidrNJA9" target="_blank" class="button-link">ส่งข้อความถึงเพื่อนรัก</a>
+        <div class="footer">
+            <p class="signature">จาก: คนที่ขำที่สุดในห้องเรียน</p>
+        </div>
+    </div>
+</body>
+</html>
