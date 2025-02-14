@@ -3,93 +3,137 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Congratulations Gallery</title>
+    <title>จดหมายปัจฉิมวันจบ</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            text-align: center;
+            font-family: 'Comic Sans MS', sans-serif;
             background: url('img/e5c59c618e4ed1e26435a561373e3b79.jpg') no-repeat center center fixed;
-            background-size: cover;
+            background-size: cover; /* ให้ภาพเต็มหน้าจอ */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
             margin: 0;
-            padding: 0;
+            color: #333;
         }
+
         .container {
-            max-width: 500px;
-            background: rgba(255, 255, 255, 0.95);
-            padding: 20px;
+            background-color: #fff;
             border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            margin: 60px auto;
-            opacity: 0;
-            animation: fadeIn 2s forwards;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            padding: 20px;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 90%;
+            max-width: 380px;
+            position: relative;
+            overflow: hidden;
+            font-size: 18px;
         }
 
-        h2 { color: #4CAF50; font-size: 28px; }
-        .btn {
-            background: #4CAF50;
-            color: white;
+        h1 {
+            font-size: 24px;
+            color: #ff6347;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .letter {
             font-size: 16px;
-            padding: 10px;
-            border-radius: 10px;
-            border: none;
-            cursor: pointer;
-            margin: 8px;
-            transition: background 0.3s;
+            line-height: 1.6;
+            color: #333;
+            margin-bottom: 30px;
         }
-        .btn:hover { background: #45A049; }
-        .back-btn { background: #f44336; }
-        .next-btn { background: #3F51B5; }
-        
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            gap: 10px;
-            margin: 15px 0;
-        }
-        .gallery img {
-            width: 100%;
-            height: 120px;
-            object-fit: cover;
-            border-radius: 8px;
-            transition: transform 0.3s;
-        }
-        .gallery img:hover { transform: scale(1.07); }
 
-        /* Responsive adjustments */
-        @media (max-width: 600px) {
-            .container {
-                width: 90%;
-                margin: 20px auto;
+        .highlight {
+            color: #ff6347;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        .stamp {
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            font-size: 30px;
+            color: #ff6347;
+            transform: rotate(45deg);
+            opacity: 0.15;
+        }
+
+        .footer {
+            font-size: 14px;
+            color: #999;
+            margin-top: 30px;
+        }
+
+        .signature {
+            font-size: 16px;
+            font-style: italic;
+            color: #32cd32;
+        }
+
+        .funny-note {
+            color: #32cd32;
+            font-weight: bold;
+        }
+
+        .funny-note span {
+            color: #ff6347;
+            font-weight: normal;
+        }
+
+        .button-link {
+            background-color: #ff6347;
+            color: white;
+            font-size: 18px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .button-link:hover {
+            background-color: #ff4500;
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 20px;
             }
-            .btn {
+
+            .letter {
                 font-size: 14px;
-                padding: 8px;
             }
-            .gallery img {
-                height: 100px;
+
+            .footer {
+                font-size: 12px;
+            }
+
+            .stamp {
+                font-size: 24px;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h2>🎉 Congratulations Gallery 🎉</h2>
-        <p>Celebrate your moments with joy and pride! 🌟</p>
-        <div class="gallery">
-            <img src="img/3.jpg" alt="Memory 1">
-            <img src="img/3.jpg" alt="Memory 2">
-            <img src="img/3.jpg" alt="Memory 3">
-            <img src="img/3.jpg" alt="Memory 4">
-            <img src="img/3.jpg" alt="Memory 5">
-            <img src="img/3.jpg" alt="Memory 6">
+        <div class="stamp">CONFIDENTIAL</div>
+        <h1>จดหมายอำลาปัจฉิม</h1>
+        <div class="letter">
+            <p>สวัสดี <span class="highlight">เพื่อนที่มีค่าที่สุด</span>!</p>
+            <p>วันนี้เป็นวันที่ยิ่งใหญ่ที่สุดในชีวิตเรา! วันแห่งการจบการศึกษา... แต่ขอเตือนนะครับว่า <span class="highlight">จบแล้วไม่ได้หมายความว่าชีวิตจะจบ!</span></p>
+            <p>คุณจะได้พบกับโลกกว้างๆ และเผชิญกับสิ่งใหม่ๆ มากมาย—ซึ่งก็หมายถึงการทำงานหนักและ...การจ่ายภาษี 😜</p>
+            <p>อย่าลืมว่าความสำเร็จไม่ได้มาโดยง่ายเหมือนกับการยกถ้วยกาแฟตอนเช้า เพราะมีค่าใช้จ่ายในการเอาชนะอุปสรรค!</p>
+            <p>ไม่ว่าคุณจะไปไหน ขอให้มีความสุขมากๆ นะครับ! และอย่าลืม: <span class="funny-note">"โลกนี้ไม่มีอะไรฟรี...ยกเว้นความขี้เกียจที่อาจจะทำให้คุณถูกไล่ออก!"</span></p>
         </div>
-        <button class="btn back-btn" onclick="window.location.href = 'index.html';">⬅️ back</button>
-        <button class="btn" onclick="alert('สู้ๆนะเพื่อนเดียวมึงก็โตแล้ว อดทนอีกนิด! 🌟')">Celebrate</button>
-        <button class="btn next-btn" onclick="window.location.href = 'note.html';">➡️ next</button>
+        <a href="https://forms.gle/oZhe6GfeDJidrNJA9" target="_blank" class="button-link">ส่งข้อความถึงเพื่อนรัก</a>
+        <div class="footer">
+            <p class="signature">จาก: คนที่ขำที่สุดในห้องเรียน</p>
+        </div>
     </div>
 </body>
 </html>
+
