@@ -13,7 +13,6 @@
             margin: 0;
             padding: 0;
             text-align: center;
-            overflow: hidden;
             font-size: 1.1em;
             background: url('img/landscape-7283516_640.jpg') no-repeat center center fixed; /* ตั้งค่าภาพพื้นหลัง */
             background-size: cover; /* ให้ภาพเต็มหน้าจอ */
@@ -78,7 +77,6 @@
         }
 
         .container {
-            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -92,6 +90,8 @@
             z-index: 1;
             max-width: 90%;
             margin: auto;
+            min-height: 100vh; /* เพิ่มความสูงขั้นต่ำ */
+            padding-bottom: 20px; /* เพิ่มพื้นที่ด้านล่าง */
         }
 
         h1 {
@@ -111,9 +111,6 @@
             z-index: 1;
             background: rgba(255, 255, 255, 0.7); /* ให้ภาพดูโปร่งใส */
             border-radius: 20px;
-
-
-            
             box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
             overflow: hidden;
             transition: transform 0.3s;
@@ -167,6 +164,53 @@
             font-weight: 600;
             line-height: 1.5;
         }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .container {
+                padding-top: 100px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            .image {
+                max-width: 250px;
+            }
+
+            .message {
+                font-size: 1.1em;
+            }
+
+            button {
+                padding: 12px 25px;
+                font-size: 1.1em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .top-bar h1 {
+                font-size: 1.5em;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .image {
+                max-width: 200px;
+            }
+
+            .message {
+                font-size: 1em;
+            }
+
+            button {
+                padding: 10px 20px;
+                font-size: 1em;
+            }
+        }
     </style>
 </head>
 <body>
@@ -207,5 +251,6 @@
     </script>
 </body>
 </html>
+
  
  
