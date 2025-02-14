@@ -1,253 +1,95 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Congratulations Page</title>
+    <title>Congratulations Gallery</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
-
         body {
-            font-family: 'Poppins', sans-serif;
-            color: #4B0082; /* สีม่วงเข้ม */
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: url('img/e5c59c618e4ed1e26435a561373e3b79.jpg') no-repeat center center fixed;
+            background-size: cover;
             margin: 0;
             padding: 0;
-            text-align: center;
-            font-size: 1.1em;
-            background: url('img/landscape-7283516_640.jpg') no-repeat center center fixed; /* ตั้งค่าภาพพื้นหลัง */
-            background-size: cover; /* ให้ภาพเต็มหน้าจอ */
-            position: relative;
         }
-
-        /* เพิ่มเอฟเฟกต์แสงให้กับพื้นหลัง */
-        body::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.3); /* เพิ่มแสง */
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        /* ดาวตก */
-        .star {
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            background-color: #000000; /* ดาวสีเหลืองทองเข้ม */
-            border-radius: 100%;
-            animation: fall 4s infinite;
-        }
-
-        @keyframes fall {
-            0% {
-                top: -10px;
-                left: calc(50% + 30px * (random() - 0.5)); /* ขยับตำแหน่งดาวให้ตกจากซ้ายขวา */
-                opacity: 1;
-            }
-            100% {
-                top: 100vh;
-                left: calc(50% + 30px * (random() - 0.5));
-                opacity: 0;
-            }
-        }
-
-        /* ส่วนอื่นๆ ของหน้า */
-        .top-bar {
-            width: 100%;
-            background-color: rgba(170, 99, 221, 0.8); /* ใช้สีม่วงเข้มโปร่งใส */
-            color: white;
-            padding: 15px 0;
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            text-align: center;
-        }
-
-        .top-bar h1 {
-            margin: 0;
-            font-size: 1.8em;
-            font-weight: 600;
-            letter-spacing: 1px;
-        }
-
         .container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            position: relative;
-            padding-top: 80px;
-            animation: fadeIn 1s ease-out;
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            z-index: 1;
-            max-width: 90%;
-            margin: auto;
-            min-height: 100vh; /* เพิ่มความสูงขั้นต่ำ */
-            padding-bottom: 20px; /* เพิ่มพื้นที่ด้านล่าง */
+            max-width: 500px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            margin: 60px auto;
+            opacity: 0;
+            animation: fadeIn 2s forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
-        h1 {
-            font-size: 2.5em;
-            margin: 20px 0;
-            padding: 0;
-            color: #514653;
-            text-shadow: 0 4px 6px rgba(12, 12, 12, 0.2);
+        h2 { color: #4CAF50; font-size: 28px; }
+        .btn {
+            background: #4CAF50;
+            color: white;
+            font-size: 16px;
+            padding: 10px;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+            margin: 8px;
+            transition: background 0.3s;
         }
-
-        /* เพิ่มรูปภาพ */
-        .image {
-            position: relative;
-            width: 80%;
-            max-width: 300px;
-            margin: 20px auto;
-            z-index: 1;
-            background: rgba(255, 255, 255, 0.7); /* ให้ภาพดูโปร่งใส */
-            border-radius: 20px;
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
-            overflow: hidden;
+        .btn:hover { background: #45A049; }
+        .back-btn { background: #f44336; }
+        .next-btn { background: #3F51B5; }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 10px;
+            margin: 15px 0;
+        }
+        .gallery img {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 8px;
             transition: transform 0.3s;
         }
+        .gallery img:hover { transform: scale(1.07); }
 
-        .image img {
-            width: 100%;
-            height: auto;
-            object-fit: cover;
-            border-radius: 20px;
-        }
-
-        .image:hover {
-            transform: scale(1.05);
-            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        .buttons {
-            margin-top: 20px;
-        }
-
-        button {
-            background-color: #9B30FF;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            font-size: 1em;
-            margin: 10px;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-
-        button:hover {
-            transform: scale(1.1);
-            background-color: #8A2BE2;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-        }
-
-        button:active {
-            background-color: #7A1F98;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-        }
-
-        /* Message styling */
-        .message {
-            font-size: 1.2em;
-            color: #6A0DAD;
-            margin-top: 20px;
-            font-weight: 600;
-            line-height: 1.5;
-        }
-
-        /* Responsive styles */
-        @media (max-width: 768px) {
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
             .container {
-                padding-top: 100px;
+                width: 90%;
+                margin: 20px auto;
             }
-
-            h1 {
-                font-size: 2em;
+            .btn {
+                font-size: 14px;
+                padding: 8px;
             }
-
-            .image {
-                max-width: 250px;
-            }
-
-            .message {
-                font-size: 1.1em;
-            }
-
-            button {
-                padding: 12px 25px;
-                font-size: 1.1em;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .top-bar h1 {
-                font-size: 1.5em;
-            }
-
-            h1 {
-                font-size: 1.8em;
-            }
-
-            .image {
-                max-width: 200px;
-            }
-
-            .message {
-                font-size: 1em;
-            }
-
-            button {
-                padding: 10px 20px;
-                font-size: 1em;
+            .gallery img {
+                height: 100px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="top-bar">
-        <h1>Congratulations!</h1>
-    </div>
     <div class="container">
-        <!-- Add Image -->
-        <div class="image">
-            <img src="img/DALL·E 2025-02-14 11.40.59 - A joyful graduation scene featuring a group of students in traditional caps and gowns, throwing their caps into the air against a bright blue sky with.webp" alt="Your Image">
+        <h2>🎉 Congratulations Gallery 🎉</h2>
+        <p>Celebrate your moments with joy and pride! 🌟</p>
+        <div class="gallery">
+            <img src="img/3.jpg" alt="Memory 1">
+            <img src="img/3.jpg" alt="Memory 2">
+            <img src="img/3.jpg" alt="Memory 3">
+            <img src="img/3.jpg" alt="Memory 4">
+            <img src="img/3.jpg" alt="Memory 5">
+            <img src="img/3.jpg" alt="Memory 6">
         </div>
-
-        <h1>You've done it!</h1>
-        <p class="message">ยินดีด้วยนะ! ความสำเร็จวันนี้คือผลลัพธ์ของความพยายาม ขอให้อนาคตของเธอสดใสและเต็มไปด้วยโอกาสดี ๆ"</p>
-        <div class="buttons">
-            <button onclick="goNext()">Next</button>
-        </div>
+        <button class="btn back-btn" onclick="window.location.href = 'index.html';">⬅️ back</button>
+        <button class="btn" onclick="alert('สู้ๆนะเพื่อนเดียวมึงก็โตแล้ว อดทนอีกนิด! 🌟')">Celebrate</button>
+        <button class="btn next-btn" onclick="window.location.href = 'note.html';">➡️ next</button>
     </div>
-
-    <!-- Stars falling effect -->
-    <script>
-        setInterval(function() {
-            let star = document.createElement('div');
-            star.classList.add('star');
-            document.body.appendChild(star);
-            let randomLeft = Math.random() * 100;
-            star.style.left = randomLeft + 'vw';
-
-            setTimeout(() => {
-                star.remove();
-            }, 4000);
-        }, 300);
-
-        // Function for the buttons
-        function goNext() {
-           window.location.href = 'Gallery.html';  // เปลี่ยนไปที่หน้าใหม่
-        }
-    </script>
 </body>
 </html>
